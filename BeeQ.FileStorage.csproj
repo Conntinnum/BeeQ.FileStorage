@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0;net8.0;net9.0;net10.0</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>BeeQ.FileStorage</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>BeeQ</Authors>
+		<Description>Simplifies the storage of files</Description>
+		<RepositoryUrl>https://github.com/Conntinnum/BeeQ.FileStorage</RepositoryUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<PackageIcon>BeeQ.FileStorage.png</PackageIcon>
+		<Title>BeeQ.FileStorage</Title>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove=".gitignore" />
+		<None Remove="desktop.ini" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="BeeQ.FileStorage.png" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+</Project>
