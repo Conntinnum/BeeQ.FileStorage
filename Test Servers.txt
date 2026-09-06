@@ -1,0 +1,15 @@
+﻿## Ftp
+docker run -d --name ftp-test -p 2121:21 -p 21000-21010:21000-21010 -e USERS="test|test123|/home/test" -e ADDRESS="127.0.0.1" -e MIN_PORT=21000 -e MAX_PORT=21010 -v "${PWD}\.docker\ftp-data:/home/test" delfer/alpine-ftp-server
+
+Host: 127.0.0.1
+Port: 2121
+Username: test
+Password: test123
+
+
+## WebDAV
+docker run -d --name webdav-test -p 8080:8080 -v "${PWD}\.docker\webdav-data:/data" rclone/rclone:latest serve webdav /data --addr :8080 --user test --pass test123
+
+url: http://127.0.0.1:8080/
+username: test
+password: test123
