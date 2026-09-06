@@ -3,36 +3,8 @@
   "WorkspaceRootPath": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\filestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:filestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\filestoragebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:filestoragebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\ifilestoragebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:ifilestoragebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\ifilestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:ifilestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\ifileinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:ifileinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\ifileuploadinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:ifileuploadinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\ifileidentifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:ifileidentifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\ifilefullidentifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:ifilefullidentifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\webdav\\webdavservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:webdav\\webdavservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,110 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FileStorageBuilder.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\FileStorageBuilder.cs",
-              "RelativeDocumentMoniker": "FileStorageBuilder.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\FileStorageBuilder.cs",
-              "RelativeToolTip": "FileStorageBuilder.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAAAFwAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:35:35.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IFileUploadInfo.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileUploadInfo.cs",
-              "RelativeDocumentMoniker": "IFileUploadInfo.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileUploadInfo.cs",
-              "RelativeToolTip": "IFileUploadInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:21:24.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IFileStorage.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileStorage.cs",
-              "RelativeDocumentMoniker": "IFileStorage.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileStorage.cs",
-              "RelativeToolTip": "IFileStorage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:21:21.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IFileInfo.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileInfo.cs",
-              "RelativeDocumentMoniker": "IFileInfo.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileInfo.cs",
-              "RelativeToolTip": "IFileInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:21:14.9Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IFileIdentifier.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileIdentifier.cs",
-              "RelativeDocumentMoniker": "IFileIdentifier.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileIdentifier.cs",
-              "RelativeToolTip": "IFileIdentifier.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:20:53.895Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IFileFullIdentifier.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileFullIdentifier.cs",
-              "RelativeDocumentMoniker": "IFileFullIdentifier.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileFullIdentifier.cs",
-              "RelativeToolTip": "IFileFullIdentifier.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:20:28.513Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FileStorage.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\FileStorage.cs",
-              "RelativeDocumentMoniker": "FileStorage.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\FileStorage.cs",
-              "RelativeToolTip": "FileStorage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOkAAAAMAAAAAAAAAA==",
+              "Title": "WebDAVService.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\WebDAV\\WebDAVService.cs",
+              "RelativeDocumentMoniker": "WebDAV\\WebDAVService.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\WebDAV\\WebDAVService.cs",
+              "RelativeToolTip": "WebDAV\\WebDAVService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:15:50.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IFileStorageBuilder.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileStorageBuilder.cs",
-              "RelativeDocumentMoniker": "IFileStorageBuilder.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileStorageBuilder.cs",
-              "RelativeToolTip": "IFileStorageBuilder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T13:15:14.679Z",
+              "WhenOpened": "2026-09-06T21:36:28.995Z",
               "EditorCaption": ""
             }
           ]

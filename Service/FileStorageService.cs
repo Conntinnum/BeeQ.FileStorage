@@ -1,53 +1,44 @@
-﻿namespace BeeQ;
+﻿using BeeQ.FileStorage.Exception;
 
-public partial class FileStorage : IFileStorage
+namespace BeeQ.FileStorage.Service;
+
+public class FileStorageService<TId> : IFileStorage<TId>
 {
-    /// <summary>
-    /// Opens a new Schema of FileStorage
-    /// </summary>
-    /// <param name="schema">Schema's name</param>
-    /// <returns>New File Storage Builder</returns>
-    public static IFileStorageBuilder OpenSchema(string schema)
-        => new FileStorageBuilder(schema);
-
-    internal class InterceptorsType(Func<(string SchemaName, string Filename), Task<Guid>> onCreateId, Func<string, Guid?> onGetFileId, Func<Guid, string?> onGetFilename)
+    internal class InterceptorsType
     {
-        internal Func<IFileUploadInfo<Stream>, Task>? OnUploadStream { get; set; }
-        internal Func<IFileUploadInfo<byte[]>, Task>? OnUploadBytes { get; set; }
-        internal Func<IFileUploadInfo<string>, Task>? OnUploadBase64 { get; set; }
+        internal Func<IFileUploadInfo<TId, Stream>, Task>? OnUploadStream { get; set; }
+        internal Func<IFileUploadInfo<TId, byte[]>, Task>? OnUploadBytes { get; set; }
+        internal Func<IFileUploadInfo<TId, string>, Task>? OnUploadBase64 { get; set; }
 
-        public Func<(string SchemaName, string Filename), Task<Guid>> OnCreateId { get; } = onCreateId;
-        public Func<string, Guid?> OnGetFileId { get; } = onGetFileId;
-        public Func<Guid, string?> OnGetFilename { get; } = onGetFilename;
+        public Func<(string? SchemaName, string Filename), Task<TId>>? OnCreateId { get; set; }
+        public Func<TId, string?>? OnGetFilename { get; set; }
 
-        internal Func<IFileInfo, Task<byte[]?>>? OnGetBytes { get; set; }
-        internal Func<IFileInfo, Task<string?>>? OnGetBase64 { get; set; }
-        internal Func<IFileInfo, Task<Stream?>>? OnGetStream { get; set; }
+        internal Func<IFileInfo<TId>, Task<byte[]?>>? OnGetBytes { get; set; }
+        internal Func<IFileInfo<TId>, Task<string?>>? OnGetBase64 { get; set; }
+        internal Func<IFileInfo<TId>, Task<Stream?>>? OnGetStream { get; set; }
+
+        internal Func<IFileInfo<TId>, Task>? OnDelete { get; set; }
     }
 
-    public string SchemaKey { get; private set; }
-    internal Func<IFileStorageFullIdentifier, string> FullPathTemplate { get; set; }
-    internal InterceptorsType Interceptors { get; set; }
-
-    internal FileStorage(string schemaKey, Func<IFileStorageFullIdentifier, string> fullPathTemplate, InterceptorsType interceptors)
-    {
-        this.SchemaKey = schemaKey;
-        this.FullPathTemplate = fullPathTemplate;
-        this.Interceptors = interceptors;
-    }
+    public string? SchemaKey { get; internal set; }
+    internal Func<IFileStorageFullIdentifier<TId>, string> FullPathTemplate { get; set; } = id => id.Filename;
+    internal InterceptorsType Interceptors { get; set; } = new();
 
     #region Upload
 
-    public async Task<IFileStorageFullIdentifier> Upload(string filename, string base64)
+    public async virtual Task<TId> Upload(string filename, string base64)
     {
-        var id = new FileStorageFullIdentifier( await Interceptors.OnCreateId((SchemaKey, filename)), filename);
-                
+        if (Interceptors.OnCreateId == null)
+            throw new CreateIdInterceptorConfigratedException();
+
+        var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
+
         if (Interceptors.OnUploadBase64 != null)
         {
             var fullpath = FullPathTemplate(id);
-            var info = new FileUploadInfoBase64(this.SchemaKey, id.Id, id.Filename, fullpath, base64);
+            var info = new FileUploadInfoBase64<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, base64);
             await Interceptors.OnUploadBase64(info);
-            return id;
+            return id.Id;
         }
         if (Interceptors.OnUploadBytes != null)
         {
@@ -63,16 +54,18 @@ public partial class FileStorage : IFileStorage
         throw new UploadInterceptorConfigratedException();
     }
 
-    public async Task<IFileStorageFullIdentifier> Upload(string filename, byte[] bytes)
+    public async virtual Task<TId> Upload(string filename, byte[] bytes)
     {
-        var id = new FileStorageFullIdentifier(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
+        if (Interceptors.OnCreateId == null)
+            throw new CreateIdInterceptorConfigratedException();
+        var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
 
         if (Interceptors.OnUploadBytes != null)
         {
             var fullpath = FullPathTemplate(id);
-            var info = new FileUploadInfoBytes(this.SchemaKey, id.Id, id.Filename, fullpath, bytes);
+            var info = new FileUploadInfoBytes<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, bytes);
             await Interceptors.OnUploadBytes(info);
-            return id;
+            return id.Id;
         }
         if (Interceptors.OnUploadBase64 != null)
         {
@@ -87,16 +80,18 @@ public partial class FileStorage : IFileStorage
         throw new UploadInterceptorConfigratedException();
     }
 
-    public async Task<IFileStorageFullIdentifier> Upload(string filename, Stream content)
+    public async virtual Task<TId> Upload(string filename, Stream content)
     {
-        var id = new FileStorageFullIdentifier(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
+        if (Interceptors.OnCreateId == null)
+            throw new CreateIdInterceptorConfigratedException();
+        var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
 
         if (Interceptors.OnUploadStream != null)
         {
             var fullpath = FullPathTemplate(id);
-            var info = new FileUploadInfoStream(this.SchemaKey, id.Id, id.Filename, fullpath, content);
+            var info = new FileUploadInfoStream<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, content);
             await Interceptors.OnUploadStream(info);
-            return id;
+            return id.Id;
         }
         if (Interceptors.OnUploadBytes != null)
         {
@@ -114,40 +109,11 @@ public partial class FileStorage : IFileStorage
 
     #endregion
 
+    #region Get
 
-    public async Task<string?> GetBase64(Guid id)
+    public async virtual Task<string?> GetBase64(TId id)
     {
-        return await InternalGetBase64(id, null);
-    }
-
-    public async Task<string?> GetBase64(string filename)
-    {
-        return await InternalGetBase64(null, filename);
-    }
-
-    public async Task<byte[]?> GetBytes(Guid id)
-    {
-        return await InternalGetBytes(id, null);
-    }
-
-    public async Task<byte[]?> GetBytes(string filename)
-    {
-        return await InternalGetBytes(null, filename);
-    }
-
-    public async Task<Stream?> GetStream(Guid id)
-    {
-        return await InternalGetStream(id, null);
-    }
-
-    public async Task<Stream?> GetStream(string filename)
-    {
-        return await InternalGetStream(null, filename);
-    }
-
-    public async Task<string?> InternalGetBase64(Guid? id, string? filename)
-    {
-        var info = GetFileInfo(id, filename);
+        var info = GetFileInfo(id);
         if (info == null)
             return null;
 
@@ -174,9 +140,9 @@ public partial class FileStorage : IFileStorage
         throw new GetInterceptorConfigratedException();
     }
 
-    public async Task<byte[]?> InternalGetBytes(Guid? id, string? filename)
+    public async virtual Task<byte[]?> GetBytes(TId id)
     {
-        var info = GetFileInfo(id, filename);
+        var info = GetFileInfo(id);
         if (info == null)
             return null;
 
@@ -202,9 +168,9 @@ public partial class FileStorage : IFileStorage
         throw new GetInterceptorConfigratedException();
     }
 
-    public async Task<Stream?> InternalGetStream(Guid? id, string? filename)
+    public async virtual Task<Stream?> GetStream(TId id)
     {
-        var info = GetFileInfo(id, filename);
+        var info = GetFileInfo(id);
         if (info == null)
             return null;
 
@@ -231,14 +197,32 @@ public partial class FileStorage : IFileStorage
         throw new GetInterceptorConfigratedException();
     }
 
+    #endregion
 
-    private FileInfo? GetFileInfo(Guid? id, string? filename)
+    #region Delete
+
+    public async virtual Task Delete(TId id)
     {
-        var _id = !id.HasValue && filename != null ? Interceptors.OnGetFileId(filename) : id;
-        var _filename = id.HasValue && filename == null ? Interceptors.OnGetFilename(id.Value) : filename;
-        if (_id == null || _filename == null)
+        if (Interceptors.OnDelete == null)
+            throw new DeleteInterceptorConfigratedException();
+
+        var info = GetFileInfo(id) ?? throw new Exception.FileNotFoundException();
+        await Interceptors.OnDelete(info);
+    }
+
+    #endregion
+
+    protected IFileInfo<TId>? GetFileInfo(TId? id)
+    {
+        if (id == null)
             return null;
 
-        return new FileInfo(this.SchemaKey, _id.Value, _filename, FullPathTemplate(new FileStorageFullIdentifier(_id.Value, _filename)));
+        if (Interceptors.OnGetFilename == null)
+            throw new GetFilenameInterceptorConfigratedException();
+        var filename = Interceptors.OnGetFilename(id);
+        if (filename == null)
+            return null;
+
+        return new FileInfo<TId>(this.SchemaKey, id, filename, FullPathTemplate(new FileStorageFullIdentifier<TId>(id, filename)));
     }
 }

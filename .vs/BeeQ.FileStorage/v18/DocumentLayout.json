@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\filestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:filestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\ifileuploadinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:ifileuploadinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\webdav\\webdavservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:webdav\\webdavservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FileStorage.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\FileStorage.cs",
-              "RelativeDocumentMoniker": "FileStorage.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\FileStorage.cs",
-              "RelativeToolTip": "FileStorage.cs",
-              "ViewState": "AgIAANUAAAAAAAAAAAAAAPMAAAAAAAAAAAAAAA==",
+              "Title": "WebDAVService.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\WebDAV\\WebDAVService.cs",
+              "RelativeDocumentMoniker": "WebDAV\\WebDAVService.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\WebDAV\\WebDAVService.cs",
+              "RelativeToolTip": "WebDAV\\WebDAVService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T14:00:43.955Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IFileUploadInfo.cs",
-              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileUploadInfo.cs",
-              "RelativeDocumentMoniker": "IFileUploadInfo.cs",
-              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\IFileUploadInfo.cs",
-              "RelativeToolTip": "IFileUploadInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T14:00:11.037Z",
+              "WhenOpened": "2026-09-06T21:36:28.995Z",
               "EditorCaption": ""
             }
           ]
