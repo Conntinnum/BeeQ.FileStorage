@@ -109,23 +109,20 @@ internal class FileStorageBuilder<TId>(string? schemaKey) : IFileStorageBuilder<
         if (CreateId == null)
             throw new CreateIdInterceptorConfigratedException();
 
-        return new FileStorageService<TId>()
+        var service = new FileStorageService<TId>() { SchemaKey = SchemaName };
+        service.Configure(FullPathTemplate, new InterceptorsDto<TId>()
         {
-            SchemaKey = SchemaName,
-            FullPathTemplate = FullPathTemplate!,
-            Interceptors = new FileStorageService<TId>.InterceptorsType()
-            {
-                OnUploadBase64 = UploadBase64,
-                OnUploadBytes = UploadBytes,
-                OnUploadStream = UploadStream,
-                OnCreateId = CreateId,
-                OnGetFilename = GetFilename,
-                OnGetBase64 = GetBase64,
-                OnGetBytes = GetBytes,
-                OnGetStream = GetStream,
-                OnDelete = Delete,
-            }
-        };
+            OnUploadBase64 = UploadBase64,
+            OnUploadBytes = UploadBytes,
+            OnUploadStream = UploadStream,
+            OnCreateId = CreateId,
+            OnGetFilename = GetFilename,
+            OnGetBase64 = GetBase64,
+            OnGetBytes = GetBytes,
+            OnGetStream = GetStream,
+            OnDelete = Delete,
+        });
+        return service;
     }
 
     public TIService CustomBuild<TService, TIService>(Func<TService> builder)
@@ -136,19 +133,19 @@ internal class FileStorageBuilder<TId>(string? schemaKey) : IFileStorageBuilder<
         var service = builder();
 
         service.SchemaKey ??= SchemaName;
-        service.FullPathTemplate ??= FullPathTemplate!;
-        service.Interceptors = new FileStorageService<TId>.InterceptorsType()
+        service.Configure(FullPathTemplate, new InterceptorsDto<TId>()
         {
-            OnUploadBase64 = service.Interceptors.OnUploadBase64 ?? UploadBase64,
-            OnUploadBytes = service.Interceptors.OnUploadBytes ?? UploadBytes,
-            OnUploadStream = service.Interceptors.OnUploadStream ?? UploadStream,
-            OnCreateId = service.Interceptors.OnCreateId ?? CreateId,
-            OnGetFilename = service.Interceptors.OnGetFilename ?? GetFilename,
-            OnGetBase64 = service.Interceptors.OnGetBase64 ?? GetBase64,
-            OnGetBytes = service.Interceptors.OnGetBytes ?? GetBytes,
-            OnGetStream = service.Interceptors.OnGetStream ?? GetStream,
-            OnDelete = service.Interceptors.OnDelete ?? Delete,
-        };
+            OnUploadBase64 = UploadBase64,
+            OnUploadBytes = UploadBytes,
+            OnUploadStream = UploadStream,
+            OnCreateId = CreateId,
+            OnGetFilename = GetFilename,
+            OnGetBase64 = GetBase64,
+            OnGetBytes = GetBytes,
+            OnGetStream = GetStream,
+            OnDelete = Delete,
+        });
+
         return (TIService)service;
     }
 }

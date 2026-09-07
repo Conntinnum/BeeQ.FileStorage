@@ -4,25 +4,9 @@ namespace BeeQ.FileStorage.Service;
 
 public class FileStorageService<TId> : IFileStorage<TId>
 {
-    internal class InterceptorsType
-    {
-        internal Func<IFileUploadInfo<TId, Stream>, Task>? OnUploadStream { get; set; }
-        internal Func<IFileUploadInfo<TId, byte[]>, Task>? OnUploadBytes { get; set; }
-        internal Func<IFileUploadInfo<TId, string>, Task>? OnUploadBase64 { get; set; }
-
-        public Func<(string? SchemaName, string Filename), Task<TId>>? OnCreateId { get; set; }
-        public Func<TId, string?>? OnGetFilename { get; set; }
-
-        internal Func<IFileInfo<TId>, Task<byte[]?>>? OnGetBytes { get; set; }
-        internal Func<IFileInfo<TId>, Task<string?>>? OnGetBase64 { get; set; }
-        internal Func<IFileInfo<TId>, Task<Stream?>>? OnGetStream { get; set; }
-
-        internal Func<IFileInfo<TId>, Task>? OnDelete { get; set; }
-    }
-
     public string? SchemaKey { get; internal set; }
-    internal Func<IFileStorageFullIdentifier<TId>, string> FullPathTemplate { get; set; } = id => id.Filename;
-    internal InterceptorsType Interceptors { get; set; } = new();
+    protected Func<IFileStorageFullIdentifier<TId>, string> FullPathTemplate { get; set; } = id => id.Filename;
+    protected InterceptorsDto<TId> Interceptors { get; set; } = new();
 
     #region Upload
 
@@ -214,7 +198,7 @@ public class FileStorageService<TId> : IFileStorage<TId>
 
     protected IFileInfo<TId>? GetFileInfo(TId? id)
     {
-        if (id == null)
+        if (id is null)
             return null;
 
         if (Interceptors.OnGetFilename == null)
@@ -224,5 +208,19 @@ public class FileStorageService<TId> : IFileStorage<TId>
             return null;
 
         return new FileInfo<TId>(this.SchemaKey, id, filename, FullPathTemplate(new FileStorageFullIdentifier<TId>(id, filename)));
+    }
+
+    internal void Configure(Func<IFileStorageFullIdentifier<TId>, string>? fullPathTemplate, InterceptorsDto<TId> interceptors)
+    {
+        this.FullPathTemplate = fullPathTemplate!;
+        this.Interceptors.OnCreateId ??= interceptors.OnCreateId;
+        this.Interceptors.OnUploadBase64 ??= interceptors.OnUploadBase64;
+        this.Interceptors.OnUploadBytes ??= interceptors.OnUploadBytes;
+        this.Interceptors.OnUploadStream ??= interceptors.OnUploadStream;
+        this.Interceptors.OnGetFilename ??= interceptors.OnGetFilename;
+        this.Interceptors.OnGetBase64 ??= interceptors.OnGetBase64;
+        this.Interceptors.OnGetBytes ??= interceptors.OnGetBytes;
+        this.Interceptors.OnGetStream ??= interceptors.OnGetStream;
+        this.Interceptors.OnDelete ??= interceptors.OnDelete;
     }
 }

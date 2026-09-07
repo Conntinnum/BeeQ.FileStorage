@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\service\\interceptorsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:service\\interceptorsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\localdisk\\localdiskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:localdisk\\localdiskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\builder\\filestoragebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:builder\\filestoragebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\service\\filestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:service\\filestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\localdisk\\localdiskconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:localdisk\\localdiskconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\localdisk\\ifilestorageextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:localdisk\\ifilestorageextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|w:\\src\\beeq\\nuget\\beeq.filestorage\\webdav\\webdavservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{04AD25F9-F95A-4515-DB2C-8300F81797A5}|BeeQ.FileStorage.csproj|solutionrelative:webdav\\webdavservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +43,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "InterceptorsDto.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\Service\\InterceptorsDto.cs",
+              "RelativeDocumentMoniker": "Service\\InterceptorsDto.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\Service\\InterceptorsDto.cs",
+              "RelativeToolTip": "Service\\InterceptorsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T14:53:31.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FileStorageService.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\Service\\FileStorageService.cs",
+              "RelativeDocumentMoniker": "Service\\FileStorageService.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\Service\\FileStorageService.cs",
+              "RelativeToolTip": "Service\\FileStorageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T14:26:42.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileStorageBuilder.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\Builder\\FileStorageBuilder.cs",
+              "RelativeDocumentMoniker": "Builder\\FileStorageBuilder.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\Builder\\FileStorageBuilder.cs",
+              "RelativeToolTip": "Builder\\FileStorageBuilder.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAD4v4cAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T14:26:28.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LocalDiskConfiguration.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\LocalDisk\\LocalDiskConfiguration.cs",
+              "RelativeDocumentMoniker": "LocalDisk\\LocalDiskConfiguration.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\LocalDisk\\LocalDiskConfiguration.cs",
+              "RelativeToolTip": "LocalDisk\\LocalDiskConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T14:22:51.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IFileStorageExtensions.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\LocalDisk\\IFileStorageExtensions.cs",
+              "RelativeDocumentMoniker": "LocalDisk\\IFileStorageExtensions.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\LocalDisk\\IFileStorageExtensions.cs",
+              "RelativeToolTip": "LocalDisk\\IFileStorageExtensions.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T14:22:07.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LocalDiskService.cs",
+              "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\LocalDisk\\LocalDiskService.cs",
+              "RelativeDocumentMoniker": "LocalDisk\\LocalDiskService.cs",
+              "ToolTip": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\LocalDisk\\LocalDiskService.cs",
+              "RelativeToolTip": "LocalDisk\\LocalDiskService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAD4vz8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T14:22:05.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "WebDAVService.cs",
               "DocumentMoniker": "W:\\src\\BeeQ\\Nuget\\BeeQ.FileStorage\\WebDAV\\WebDAVService.cs",
               "RelativeDocumentMoniker": "WebDAV\\WebDAVService.cs",
