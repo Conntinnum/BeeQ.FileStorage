@@ -12,13 +12,11 @@ public class FileStorageService<TId> : IFileStorage<TId>
 
     public async virtual Task<TId> Upload(string filename, string base64)
     {
-        if (Interceptors.OnCreateId == null)
-            throw new CreateIdInterceptorConfigratedException();
-
-        var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
-
         if (Interceptors.OnUploadBase64 != null)
         {
+            if (Interceptors.OnCreateId == null)
+                throw new CreateIdInterceptorConfigratedException();
+            var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
             var fullpath = FullPathTemplate(id);
             var info = new FileUploadInfoBase64<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, base64);
             await Interceptors.OnUploadBase64(info);
@@ -40,12 +38,11 @@ public class FileStorageService<TId> : IFileStorage<TId>
 
     public async virtual Task<TId> Upload(string filename, byte[] bytes)
     {
-        if (Interceptors.OnCreateId == null)
-            throw new CreateIdInterceptorConfigratedException();
-        var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
-
         if (Interceptors.OnUploadBytes != null)
         {
+            if (Interceptors.OnCreateId == null)
+                throw new CreateIdInterceptorConfigratedException();
+            var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
             var fullpath = FullPathTemplate(id);
             var info = new FileUploadInfoBytes<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, bytes);
             await Interceptors.OnUploadBytes(info);
@@ -66,12 +63,12 @@ public class FileStorageService<TId> : IFileStorage<TId>
 
     public async virtual Task<TId> Upload(string filename, Stream content)
     {
-        if (Interceptors.OnCreateId == null)
-            throw new CreateIdInterceptorConfigratedException();
-        var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
 
         if (Interceptors.OnUploadStream != null)
         {
+            if (Interceptors.OnCreateId == null)
+                throw new CreateIdInterceptorConfigratedException();
+            var id = new FileStorageFullIdentifier<TId>(await Interceptors.OnCreateId((SchemaKey, filename)), filename);
             var fullpath = FullPathTemplate(id);
             var info = new FileUploadInfoStream<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, content);
             await Interceptors.OnUploadStream(info);
@@ -212,7 +209,7 @@ public class FileStorageService<TId> : IFileStorage<TId>
 
     internal void Configure(Func<IFileStorageFullIdentifier<TId>, string>? fullPathTemplate, InterceptorsDto<TId> interceptors)
     {
-        this.FullPathTemplate = fullPathTemplate!;
+        this.FullPathTemplate = fullPathTemplate ?? this.FullPathTemplate;
         this.Interceptors.OnCreateId ??= interceptors.OnCreateId;
         this.Interceptors.OnUploadBase64 ??= interceptors.OnUploadBase64;
         this.Interceptors.OnUploadBytes ??= interceptors.OnUploadBytes;
