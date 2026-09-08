@@ -20,7 +20,7 @@ public class FileStorageService<TId> : IFileStorage<TId>
             var fullpath = FullPathTemplate(id);
             var info = new FileUploadInfoBase64<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, base64);
             await Interceptors.OnUploadBase64(info);
-            return id.Id;
+            return info.Id;
         }
         if (Interceptors.OnUploadBytes != null)
         {
@@ -46,7 +46,7 @@ public class FileStorageService<TId> : IFileStorage<TId>
             var fullpath = FullPathTemplate(id);
             var info = new FileUploadInfoBytes<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, bytes);
             await Interceptors.OnUploadBytes(info);
-            return id.Id;
+            return info.Id;
         }
         if (Interceptors.OnUploadBase64 != null)
         {
@@ -63,7 +63,6 @@ public class FileStorageService<TId> : IFileStorage<TId>
 
     public async virtual Task<TId> Upload(string filename, Stream content)
     {
-
         if (Interceptors.OnUploadStream != null)
         {
             if (Interceptors.OnCreateId == null)
@@ -72,7 +71,7 @@ public class FileStorageService<TId> : IFileStorage<TId>
             var fullpath = FullPathTemplate(id);
             var info = new FileUploadInfoStream<TId>(this.SchemaKey, id.Id, id.Filename, fullpath, content);
             await Interceptors.OnUploadStream(info);
-            return id.Id;
+            return info.Id;
         }
         if (Interceptors.OnUploadBytes != null)
         {

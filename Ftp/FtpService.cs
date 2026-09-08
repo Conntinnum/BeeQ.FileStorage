@@ -126,7 +126,7 @@ internal class FtpService<TId> : FileStorageService<TId>, IFtpService<TId>
 
             // upload file
             var ftp = CreateRequest(info.FullPath, WebRequestMethods.Ftp.UploadFile, this.Config);
-            using (var uploadStream = ftp.GetRequestStream())
+            using (var uploadStream = await ftp.GetRequestStreamAsync())
             {
                 await info.Content.CopyToAsync(uploadStream);
             }

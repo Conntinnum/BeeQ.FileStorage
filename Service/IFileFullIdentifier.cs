@@ -9,12 +9,12 @@ public interface IFileStorageFullIdentifier<TId>
     /// <summary>
     /// Gets the identifier value for the stored file.
     /// </summary>
-    public TId Id { get; }
+    public TId Id { get; set; }
 
     /// <summary>
     /// Gets the filename associated with the stored file.
     /// </summary>
-    public string Filename { get; }
+    public string Filename { get; set; }
 }
 
 /// <summary>
